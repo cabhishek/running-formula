@@ -5,10 +5,11 @@ setup:
 	virtualenv .venv && source .venv/bin/activate
 	echo "Installing dependancies from requirements.txt"
 	.venv/bin/pip install -r requirements.txt
-	echo "Installing npm dependancies from package.json"
-	npm install
+
+notebook:
+	ipython notebook
 
 tests:
 	nosetests -w analytics/tests
 
-.PHONY: all setup
+.PHONY: all setup notebook
