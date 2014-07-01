@@ -1,29 +1,17 @@
-Flask==0.10.1
-Jinja2==2.7.2
-MarkupSafe==0.18
-Pygments==1.6
-Werkzeug==0.9.4
-backports.ssl-match-hostname==3.4.0.2
-boto==2.27.0
-first==2.0.1
-funcy==0.9
-gnureadline==6.3.3
-gunicorn==18.0
-ipython==2.1.0
-itsdangerous==0.23
-jdcal==1.0
-matplotlib==1.3.1
-nose==1.3.3
-numpy==1.8.0
-openpyxl==1.6.1
-pandas==0.14.0
-pyparsing==2.0.2
-python-dateutil==2.2
-pytz==2013.9
-pyzmq==14.0.1
-redis==2.9.0
-requests==2.2.0
-scikit-learn==0.14.1
-six==1.5.2
-tornado==3.1.1
-wsgiref==0.1.2
+Datathletics analytics
+===
+
+#### Make sure you have following dependancies setup correctly first####
+
+1. Node + NPM (http://nodejs.org/)
+1. Virtualenv (http://www.virtualenv.org/en/latest/virtualenv.html#installation)
+
+###Dev setup###
+1. git clone ```git@bitbucket.org:datathletics/datathletics-analytics.git```
+1. make setup
+1. npm run up
+
+### Tech stack ###
+1. Python 2.7.x 
+1. Pandas + SciPy + NumPy + iPython Notebook (Data science)
+1. Flask (Web framework/API)
