@@ -13,9 +13,18 @@ select ar.id,
        starting_elevation,
        gross_elevation_gain
 from athlete_races ar join races r on ar.`race_id` = r.`id`
+and r.`race_type` like 'Ironman'
+and ar.`age` between 40 and 49
+and ar.`final_time` != 0
+and ar.`athlete_id` in (
+select athlete_id
+from athlete_races ar join races r on ar.`race_id` = r.`id`
 and ar.age != 0
-and ar.`age` between 30 and 34
-and r.`race_type` like 'Ironman 70.3'
+and ar.`age` between 40 and 49
+and r.`race_type` like 'Ironman'
 and ar.`final_time` != 0
 and ar.`m_f` like 'M'
-order by final_time;
+and ar.athlete_id != 1109
+group by athlete_id
+having count(*) > 10)
+order by athlete_id;
