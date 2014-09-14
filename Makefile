@@ -10,6 +10,6 @@ notebook:
 	ipython notebook
 
 tests:
-	nosetests -w analytics/tests
+	nosetests
 
-.PHONY: all setup notebook
+.PHONY: all setup notebook tests
