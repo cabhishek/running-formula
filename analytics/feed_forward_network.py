@@ -96,16 +96,16 @@ def train_network():
     # Create network
     network = create_feedforward_network(supervised_dataset)
 
-    trainData, testData = supervised_dataset.splitWithProportion(0.9)
+    train_data, test_data = supervised_dataset.splitWithProportion(0.9)
 
-    trainer = BackpropTrainer(network, dataset=trainData)
+    trainer = BackpropTrainer(network, dataset=train_data)
 
     # Train our network
     trainer.trainEpochs(1)
 
     # check network accuracy
-    print _sum_square_error(network.activateOnDataset(dataset=trainData), trainData['target'])
-    print _sum_square_error(network.activateOnDataset(dataset=testData),  testData['target'])
+    print _sum_square_error(network.activateOnDataset(dataset=train_data), train_data['target'])
+    print _sum_square_error(network.activateOnDataset(dataset=test_data), test_data['target'])
 
     print 'Execution time =>', timeit.default_timer() - start, 'secs'
 
