@@ -2,7 +2,6 @@ from funcy import first, last
 import pandas as pd
 import numpy as np
 import math
-import time
 
 
 BIN_SIZE = 15
