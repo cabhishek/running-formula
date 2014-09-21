@@ -1,6 +1,6 @@
 import unittest
 
-from analytics.critical_power.power_formula import power
+from analytics.critical_power.power import power
 
 class TestPower(unittest.TestCase):
     def setUp(self):
