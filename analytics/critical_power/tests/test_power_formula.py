@@ -8,7 +8,7 @@ class TestPower(unittest.TestCase):
 
     def test_power_scenario_one(self):
         time = 1200
-        angle = 10
+        elevation = 10
         height = 170
         mass = 80
         temp = 30
