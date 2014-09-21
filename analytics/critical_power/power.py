@@ -1,8 +1,8 @@
 from __future__ import division
 
-from caero import caero
-from ckin import ckin
-from energy_cost import running_cost
+from analytics.critical_power.caero import caero
+from analytics.critical_power.ckin import ckin
+from analytics.critical_power.energy_cost import running_cost
 
 def power(distance, time, angle, height, mass, temperature):
     """
