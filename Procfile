@@ -1,1 +1,1 @@
-web: gunicorn athlete_power:app --log-file=-
+web: gunicorn application:app --log-file=-
