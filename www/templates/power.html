@@ -6,47 +6,114 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 		<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
     {% endblock head %}
+
+    <style>
+        .form-div {
+            width: 800px;
+            margin: 20px 40px;
+        }
+        .col-md-8 {
+            width: 400px;
+        }
+    </style>
     </head>
     <body>
-        <div class="container">
-        <form class="form-horizontal" role="form">
-            <div class="form-group">
-                <div class="col-xs-2">
-                 <input type="text" class="form-control" id="inputEmail3" placeholder="distance in meters">
+        <div class="row">
+            <div class="col-md-8">
+
+            <div class="form-div">
+            <form id="power-form"  class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="distance" class="form-control"  placeholder="distance in meters">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-2">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="time in seconds">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="time" class="form-control"  placeholder="time in seconds">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-2">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="angle in degree">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="angle" class="form-control"  placeholder="angle in degree">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-2">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="height in meters">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="height" class="form-control"  placeholder="height in meters">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-2">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="mass in kg">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="mass" class="form-control"  placeholder="mass in kg">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-2">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="temperature in celsius">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="temperature" class="form-control"  placeholder="temperature in celsius">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-10">
-                <button type="button" class="btn btn-default">calculate</button>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                    <input type="text" name="elevation" class="form-control"  placeholder="elevation in feets">
+                    </div>
                 </div>
-            </div>
-            </form>
-         </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">calculate</button>
+                    </div>
+                </div>
+              </form>
+          </div>
+              </div>
+              <div class="col-md-4">
+
+                  <h2>Results</h2>
+                    <div id="results">
+                    </div>
+              </div>
+        </div>
+         <script>
+            // magic.js
+            $(document).ready(function() {
+
+                $('#power-form').submit(function(event) {
+
+                    $('#results').empty();
+                    var formData = {
+                        'distance'	: $('input[name=distance]').val(),
+                        'time' 		: $('input[name=time]').val(),
+                        'angle' 	: $('input[name=angle]').val(),
+                        'height' 	: $('input[name=height]').val(),
+                        'mass' 	    : $('input[name=mass]').val(),
+                        'temperature'	: $('input[name=temperature]').val(),
+                        'elevation' 	: $('input[name=elevation]').val(),
+                    };
+
+                    console.log(formData);
+
+                    $.ajax({
+                        type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                        url 		: '/calculate', // the url where we want to POST
+                        data 		: formData, // our data object
+                        dataType 	: 'json', // what type of data do we expect back from the server
+                        encode          : true
+                    }).done(function(data) {
+
+                        if(data.success){
+                            el = '<h4> Power is '+ data.result + ' W/kg </h4>';
+                        }else{
+                            el = '<h4> ' + data.result + ' </h4>'
+                        }
+
+                        $('#results').append(el);
+                    });
+
+                    event.preventDefault();
+                });
+
+            });
+         </script>
     </body>
 </html>
 

@@ -4,7 +4,7 @@ from analytics.critical_power.caero import caero
 from analytics.critical_power.ckin import ckin
 from analytics.critical_power.energy_cost import running_cost
 
-def power(distance, time, angle, height, mass, temperature):
+def power(distance, time, angle, height, mass, temperature, elevation):
     """
         Power (W/kg) = (Ci * nV - (Ci * nV * (.5 * (V * 8.33-1)))) + Caero * V + Ckin * V
     """
