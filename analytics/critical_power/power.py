@@ -13,7 +13,7 @@ def power(distance, time, angle, height, mass, temperature):
     _caero = caero(distance, time, height, mass, temperature)
     _ckin = ckin(distance, time)
 
-    _running_cost = running_cost(distance, time, angle)
+    _running_cost = running_cost(distance, time, elevation)
 
     _power = _running_cost + _caero * v + _ckin * v
 

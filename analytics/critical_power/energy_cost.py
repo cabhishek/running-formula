@@ -1,6 +1,6 @@
 import math
 
-def running_cost(distance, time, angle):
+def running_cost(distance, time, elevation):
     """ Cost to move forward = Ci - Ci (.5 * V / 8.33)
 
     where:
@@ -8,22 +8,23 @@ def running_cost(distance, time, angle):
             running_cost in units watts/kg
     """
 
-    running_cost = _slope_cost(angle) * (1 - 0.5 * distance / (time * 8.33))
+    running_cost = _slope_cost(distance, elevation) * (1 - 0.5 * distance / (time * 8.33))
 
     return running_cost
 
-def _slope_cost(angle):
+def _slope_cost(distance, elevation):
     """ Cost of running an uphill slope = C_i
 
         C_i = 155.4*i^5 - 30.4*i^4 - 43.3*i^3 + 46.3*i^2 + 19.5*i + 3.6
 
         where:
-            i = slope in degrees
+            i = slope; unitless; elevation/distance
             C_i in units watts/kg
     """
-
-    slope_cost = 155.4 * math.pow(angle, 5) - 30.4 * math.pow(angle, 4) - 43.3 * math.pow(
-        angle, 3) + 46.3 * math.pow(angle, 2) + 19.5 * angle + 3.6
+    slope = elevation / distance
+    
+    slope_cost = 155.4 * math.pow(slope, 5) - 30.4 * math.pow(slope, 4) - 43.3 * math.pow(
+        slope, 3) + 46.3 * math.pow(slope, 2) + 19.5 * slope + 3.6
 
     return slope_cost
 
