@@ -6,7 +6,7 @@ from analytics.critical_power.energy_cost import running_cost
 
 def power(distance, time, angle, height, mass, temperature):
     """
-        Power (W/kg) = (Ci * nV - (Ci * nV * (.5 * (V * 8.33-1))))+ Caero * V + Ckin * V
+        Power (W/kg) = (Ci * nV - (Ci * nV * (.5 * (V * 8.33-1)))) + Caero * V + Ckin * V
     """
     v = distance / time
 

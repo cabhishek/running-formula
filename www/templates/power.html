@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+    {% block head %}
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    {% endblock head %}
+    </head>
+    <body>
+        <div class="container">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-2">
+                 <input type="text" class="form-control" id="inputEmail3" placeholder="distance in meters">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="time in seconds">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="angle in degree">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="height in meters">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="mass in kg">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="temperature in celsius">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                <button type="button" class="btn btn-default">calculate</button>
+                </div>
+            </div>
+            </form>
+         </div>
+    </body>
+</html>
+
