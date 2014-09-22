@@ -31,7 +31,7 @@ def calculate_power():
             _ckin = round(ckin(distance, time), 3)
             _caero = round(caero(distance, time, height, mass, temp), 3)
 
-            _runnin_cost = round(running_cost(distance, time, elevation), 3)
+            _running_cost = round(running_cost(distance, time, elevation), 3)
 
             _power = round(power(distance, time, angle, height, mass, temp, elevation), 3)
 
@@ -39,7 +39,7 @@ def calculate_power():
             print e
             return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 
-        return jsonify(success=True, _power=_power, _ckin=_ckin, _caero=_caero, _running_cost=_runnin_cost)
+        return jsonify(success=True, _power=_power, _ckin=_ckin, _caero=_caero, _running_cost=_running_cost, _power_watts = _power * mass)
 
     return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 
