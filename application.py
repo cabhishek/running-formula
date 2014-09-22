@@ -1,6 +1,10 @@
 from flask import Flask, render_template, jsonify, request
 
 from analytics.critical_power.power import power
+from analytics.critical_power.caero import caero
+from analytics.critical_power.ckin import ckin
+from analytics.critical_power.energy_cost import running_cost
+
 
 app = Flask(__name__, template_folder='www/templates', static_folder='www/assets')
 
@@ -24,12 +28,18 @@ def calculate_power():
             temp      = float(request.form['temperature'])
             elevation = float(request.form['elevation'])
 
-            result = round(power(distance, time, angle, height, mass, temp, elevation), 3)
+            _ckin = round(ckin(distance, time), 3)
+            _caero = round(caero(distance, time, height, mass, temp), 3)
+
+            _runnin_cost = round(running_cost(distance, time, elevation), 3)
+
+            _power = round(power(distance, time, angle, height, mass, temp, elevation), 3)
+
         except Exception as e:
             print e
             return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 
-        return jsonify(success=True, result=result)
+        return jsonify(success=True, _power=_power, _ckin=_ckin, _caero=_caero, _running_cost=_runnin_cost)
 
     return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 

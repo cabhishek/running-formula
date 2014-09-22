@@ -101,7 +101,10 @@
                     }).done(function(data) {
 
                         if(data.success){
-                            el = '<h4> Power is '+ data.result + ' W/kg </h4>';
+                            el = '<h4> <p> Total Power = '+ data._power + ' W/kg </p></br>';
+                            el  += '<p> Running cost = ' + data._running_cost + ' </p>';
+                            el  += '<p> Caero = ' + data._caero + ' in J kg^-1 m^-1 </p>';
+                            el  += '<p> Ckin = ' + data._ckin + ' in J kg^-1 m^-1 </p> </h4>';
                         }else{
                             el = '<h4> ' + data.result + ' </h4>'
                         }
