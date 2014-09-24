@@ -41,7 +41,7 @@ def _frontal_area(height, mass):
        height in (m) and mass in (kg)
        Af = frontal area = (0.2025 * height^0.725 * mass^0.425)
     """
-    frontal_area = 0.2025 * math.pow(height, 0.725) * math.pow(mass, 0.425)
+    frontal_area = 0.2025 * math.pow(height, 0.725) * math.pow(mass, 0.425) * 0.226
 
     return frontal_area
 
