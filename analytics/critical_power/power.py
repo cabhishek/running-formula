@@ -15,6 +15,6 @@ def power(distance, time, angle, height, mass, temperature, elevation):
 
     _running_cost = running_cost(distance, time, elevation)
 
-    _power = _running_cost + _caero * v + _ckin * v
+    _power = _running_cost * v + _caero * v + _ckin * v
 
     return _power
