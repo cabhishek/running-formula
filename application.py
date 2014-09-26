@@ -44,7 +44,8 @@ def calculate_power():
                        _power_watts  = _power * mass,
                        _ckin         = _ckin,
                        _caero        = _caero,
-                       _running_cost = _running_cost)
+                       _running_cost = _running_cost,
+                       _velocity = round(distance / time, 2))
 
     return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 
