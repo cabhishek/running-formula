@@ -39,7 +39,12 @@ def calculate_power():
             print e
             return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 
-        return jsonify(success=True, _power=_power, _ckin=_ckin, _caero=_caero, _running_cost=_running_cost, _power_watts = _power * mass)
+        return jsonify(success       = True,
+                       _power        = _power,
+                       _power_watts  = _power * mass,
+                       _ckin         = _ckin,
+                       _caero        = _caero,
+                       _running_cost = _running_cost)
 
     return jsonify(success=False, result="Failed to calculate power. Make sure inputs are correct")
 
