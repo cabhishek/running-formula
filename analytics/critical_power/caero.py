@@ -25,14 +25,14 @@ def caero(dist, time, height, mass, temperature):
             time in secs
     """
     Cd = 0.9 # Drag coefficient
-    n  = 0.5 # Efficieny
+    n  = 0.5 # Efficiency
 
     Af = _frontal_area(height, mass)
     p  = _air_density(temperature)
 
     k = 0.5 * p * Af * Cd
 
-    Caero = k * math.pow(n, -1) * math.pow(dist, 2) * math.pow(time, -2)
+    Caero = k * math.pow(n, -1) * math.pow(dist, 2) * math.pow(time, -2) / (efficiency * mass)
 
     return Caero
 
@@ -57,3 +57,14 @@ def _air_density(temperature):
     air_density = po * (pb / 760) * (273 / (273 + temperature))
 
     return air_density
+
+def _efficiency(dist, time):
+    """ Efficiency - unitless
+        = 0.25 + 0.25 * (dist/time) / V_max 
+        where V_max = 11.8 for males and 10.7 for females 
+    """
+    
+    v_max = 11.8
+    efficiency = 0.25 + 0.25 * (dist/time) / v_max
+    
+    return efficiency
