@@ -32,7 +32,7 @@ def caero(dist, time, height, mass, temperature):
 
     k = 0.5 * p * Af * Cd
 
-    Caero = k * math.pow(n, -1) * math.pow(dist, 3) * math.pow(time, -3)
+    Caero = k * math.pow(n, -1) * math.pow(dist, 3) * math.pow(time, -3) * math.pow(mass, -1)
 
     return Caero
 

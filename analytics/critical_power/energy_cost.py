@@ -1,4 +1,5 @@
 from __future__  import division
+
 import math
 
 def running_cost(distance, time, elevation):
