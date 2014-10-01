@@ -1,3 +1,4 @@
+from __future__  import division
 import math
 
 def running_cost(distance, time, elevation):
@@ -8,7 +9,9 @@ def running_cost(distance, time, elevation):
             running_cost in units watts/kg
     """
 
-    _running_cost = _slope_cost(distance, elevation) * (1 - 0.5 * distance / (time * 8.33))
+    v = distance / time
+
+    _running_cost = v * _slope_cost(distance, elevation) * (1 - 0.5 * distance / (time * 8.33))
 
     return _running_cost
 

@@ -13,5 +13,5 @@ def ckin(distance, time):
     """
     n = 0.25
 
-    return 0.5 * math.pow(n, -1) * distance * math.pow(time, -2)
+    return 0.5 * math.pow(n, -1) * math.pow(distance, 2) * math.pow(time, -3)
 

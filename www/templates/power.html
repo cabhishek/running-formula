@@ -103,9 +103,9 @@
                         if(data.success){
                             el = '<h4> <p> Total Power = '+ data._power + ' W/kg ';
                             el +=  'or '  + data._power_watts + ' Watts </p> </br> </br>';
-                            el  += '<p> C = ' + data._running_cost * data._velocity + ' (' + Math.round((data._running_cost * data._velocity / data._power) * 100) + '%)' + ' in J kg^-1 m^-1 </p>';
-                            el  += '<p> Caero = ' + data._caero * data._velocity + ' (' + Math.round((data._caero * data._velocity / data._power) * 100) + '%)' + ' in J kg^-1 m^-1 </p>';
-                            el  += '<p> Ckin = ' + data._ckin * data._velocity + ' (' + Math.round((data._ckin * data._velocity / data._power) * 100) + '%)' + ' in J kg^-1 m^-1 </p> </h4>';
+                            el  += '<p> C = ' + data._running_cost + ' (' + Math.round((data._running_cost / data._power) * 100) + '%)' + ' in J kg^-1 m^-1 </p>';
+                            el  += '<p> Caero = ' + data._caero  + ' (' + Math.round((data._caero / data._power) * 100) + '%)' + ' in J kg^-1 m^-1 </p>';
+                            el  += '<p> Ckin = ' + data._ckin + ' (' + Math.round((data._ckin / data._power) * 100) + '%)' + ' in J kg^-1 m^-1 </p> </h4>';
                         }else{
                             el = '<h4> ' + data.result + ' </h4>'
                         }
