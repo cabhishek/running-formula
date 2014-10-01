@@ -8,9 +8,9 @@ def running_cost(distance, time, elevation):
             running_cost in units watts/kg
     """
 
-    running_cost = _slope_cost(distance, elevation) * (1 - 0.5 * distance / (time * 8.33))
+    _running_cost = _slope_cost(distance, elevation) * (1 - 0.5 * distance / (time * 8.33))
 
-    return running_cost
+    return _running_cost
 
 def _slope_cost(distance, elevation):
     """ Cost of running an uphill slope = C_i
@@ -21,12 +21,12 @@ def _slope_cost(distance, elevation):
             i = slope; unitless; elevation/distance
             C_i in units watts/kg
     """
-    slope = elevation / distance
-    
-    slope_cost = 155.4 * math.pow(slope, 5) - 30.4 * math.pow(slope, 4) - 43.3 * math.pow(
-        slope, 3) + 46.3 * math.pow(slope, 2) + 19.5 * slope + 3.6
+    _slope = elevation / distance
 
-    return slope_cost
+    _slope_cost_value = 155.4 * math.pow(_slope, 5) - 30.4 * math.pow(_slope, 4) - 43.3 * math.pow(
+        _slope, 3) + 46.3 * math.pow(_slope, 2) + 19.5 * _slope + 3.6
+
+    return _slope_cost_value
 
 '''
  def mechanical_efficiency(slope):

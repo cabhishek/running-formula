@@ -29,18 +29,17 @@ def caero(dist, time, height, mass, temperature):
 
     Af = _frontal_area(height, mass)
     p  = _air_density(temperature)
-    efficiency = _efficiency(dist, time)
 
     k = 0.5 * p * Af * Cd
 
-    Caero = k * math.pow(n, -1) * math.pow(dist, 2) * math.pow(time, -2) / (efficiency * mass)
+    Caero = k * math.pow(n, -1) * math.pow(dist, 2) * math.pow(time, -2)
 
     return Caero
 
 def _frontal_area(height, mass):
     """
        height in (m) and mass in (kg)
-       Af = frontal area = (0.2025 * height^0.725 * mass^0.425)
+       Af = frontal area = (0.2025 * height^0.725 * mass^0.425) * 0.226
     """
     frontal_area = 0.2025 * math.pow(height, 0.725) * math.pow(mass, 0.425) * 0.226
 
@@ -59,13 +58,3 @@ def _air_density(temperature):
 
     return air_density
 
-def _efficiency(dist, time):
-    """ Efficiency - unitless
-        = 0.25 + 0.25 * (dist/time) / V_max
-        where V_max = 11.8 for males and 10.7 for females
-    """
-
-    v_max = 11.8
-    efficiency = 0.25 + 0.25 * (dist/time) / v_max
-
-    return efficiency
