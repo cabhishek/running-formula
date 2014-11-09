@@ -1,13 +1,13 @@
-Datathletics analytics
+Running formula
 ===
 
-#### Make sure you have following dependancies setup correctly first####
+#### Pre-requisite ####
 
-1. Node + NPM (http://nodejs.org/)
-1. Virtualenv (http://www.virtualenv.org/en/latest/virtualenv.html#installation)
+1. [Node + NPM](http://nodejs.org/)
+1. [Virtualenv](http://www.virtualenv.org/en/latest/virtualenv.html#installation)
 
 ###Dev setup###
-1. git clone ```git@bitbucket.org:datathletics/datathletics-analytics.git```
+1. git clone ```https://github.com/cabhishek/running-formula.git```
 1. make setup
 
 ###Activate iPython notebook###
