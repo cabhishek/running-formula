@@ -17,5 +17,5 @@ Datathletics analytics
 
 ### Tech stack ###
 1. Python 2.7.x
-1. Pandas + SciPy + NumPy + iPython Notebook (Data science)
+1. Pandas + NumPy + iPython Notebook (Data science)
 1. Flask (Web framework/API)
