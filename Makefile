@@ -1,5 +1,7 @@
 export PATH  := node_modules/.bin:$(PATH)
 
+all:setup
+
 setup:
 	brew install pkg-config
 	virtualenv .venv && source .venv/bin/activate

@@ -15,8 +15,6 @@ def athlete_power():
 
 @app.route("/calculate", methods=['POST'])
 def calculate_power():
-    print request.form
-
     if request.form:
 
         try:
