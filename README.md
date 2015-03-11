@@ -8,7 +8,7 @@ Running formula
 
 ###Dev setup###
 1. git clone ```https://github.com/cabhishek/running-formula.git```
-1. make
+1. make setup
 
 ### Tech stack ###
 1. Python 2.7
